@@ -105,6 +105,8 @@ async function getPokemonData(pokemonId) {
       sprites: { front_default: pokemonImageUrl },
     } = data;
 
+    const capitalizedName = name[0].toUpperCase() + name.slice(1);
+
     noPokemon.style.display = "none";
     pokemonImageContainer.style.display = "block";
 
@@ -114,7 +116,7 @@ async function getPokemonData(pokemonId) {
     pokemonInfoContainer.style.gap = "20px";
 
     pokemonIdDiv.textContent = `ID: ${id}`;
-    pokemonName.textContent = `Name: ${name}`;
+    pokemonName.textContent = `Name: ${capitalizedName}`;
     pokemonHeight.textContent = `Height: ${height}`;
     pokemonBaseExperience.textContent = `Base Experience: ${base_experience}`;
 
