@@ -1,5 +1,4 @@
 const player = document.getElementById("player");
-const mapPokemon = document.getElementById("map");
 
 const pokemonImageContainer = document.getElementById("pokemonImageContainer");
 const pokemonInfoContainer = document.getElementById("pokemonInfoContainer");
@@ -25,7 +24,7 @@ let y = 0;
 
 let abortController = new AbortController();
 
-mapPokemon.addEventListener("keydown", run);
+document.addEventListener("keydown", run);
 
 function run(e) {
   const direction = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
