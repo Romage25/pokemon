@@ -8,7 +8,6 @@ body {
   margin: 0;
   padding: 0;
   max-height: 100vh;
-  width: 100%;
 }
 
 h1 {
@@ -22,11 +21,10 @@ p {
 }
 
 .container {
-  margin-top: 20px;
+  margin: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
 }
 
 #map {
@@ -74,11 +72,9 @@ p {
 #pokemonImage {
   width: 100%;
   height: 100%;
-  /* object-fit: cover; */
 }
 
 #pokemonInfoContainer {
-  margin-top: 10px;
   height: 70%;
   width: 100%;
   padding: 10px;
@@ -140,3 +136,76 @@ p {
 #upArrow:active, #downArrow:active, #leftArrow:active, #rightArrow:active  {
   background-color: rgba(122, 117, 117, 0.673);
 }
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #map {
+    height: 360px;
+    width: 240px;
+  }
+
+  #player {
+    width: 10px;
+    height: 10px;
+  }
+
+  .right-container {
+    width: 240px;
+    flex-direction: row;
+  }
+
+  .card {
+    height: 150px;
+    width: 100px;
+    padding: 5px;
+    gap: 2px;
+  }
+
+  #noPokemon, #isLoading {
+    font-size: 20px;
+  }
+
+  #pokemonId, #pokemonName, #pokemonBaseExperience, #pokemonHeight {
+    font-size: 6px;
+  }
+
+  .controller {
+    width: 130px;
+  }
+
+  #upArrow {
+    top: 0;
+    left: 40%;
+  }
+  
+  #downArrow {
+    bottom: 0;
+    left: 40%;
+  }
+  
+  #leftArrow {
+    top: 30%;
+    left: 20%;
+  }
+  
+  #rightArrow {
+    top: 30%;
+    left: 60%;
+  }
+}
+
+

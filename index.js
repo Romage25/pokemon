@@ -19,12 +19,20 @@ const downArrow = document.getElementById("downArrow");
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
 
+let screenWidth = window.screen.width;
+
+console.log(screenWidth);
+
 let x = 0;
 let y = 0;
 
 let abortController = new AbortController();
 
 document.addEventListener("keydown", run);
+
+document.addEventListener("resize", () => {
+  screenWidth = window.screen.width;
+})
 
 function run(e) {
   const direction = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
@@ -40,32 +48,49 @@ function move(key) {
 
   abortController = new AbortController();
 
+  const moveWidth = screenWidth < 600 ? 10 : 30;
+
   switch (key) {
     case "ArrowRight":
-      x += 30;
+      x += moveWidth;
       break;
     case "ArrowLeft":
-      x -= 30;
+      x -= moveWidth;
       break;
     case "ArrowUp":
-      y -= 30;
+      y -= moveWidth;
       break;
     case "ArrowDown":
-      y += 30;
+      y += moveWidth;
       break;
   }
 
-  if (x > 870) {
-    x = 0;
-  }
-  if (x < 0) {
-    x = 870;
-  }
-  if (y > 540) {
-    y = 0;
-  }
-  if (y < 0) {
-    y = 540;
+  if (screenWidth < 601) {
+    if (x > 230) {
+      x = 0;
+    }
+    if (x < 0) {
+      x = 230;
+    }
+    if (y > 350) {
+      y = 0;
+    }
+    if (y < 0) {
+      y = 350;
+    }
+  } else {
+    if (x > 870) {
+      x = 0;
+    }
+    if (x < 0) {
+      x = 870;
+    }
+    if (y > 540) {
+      y = 0;
+    }
+    if (y < 0) {
+      y = 540;
+    }
   }
 
   player.style.left = `${x}px`;
@@ -117,7 +142,6 @@ async function getPokemonData(pokemonId) {
     pokemonInfoContainer.style.display = "flex";
     pokemonInfoContainer.style.flexDirection = "column";
     pokemonInfoContainer.style.alignItems = "start";
-    pokemonInfoContainer.style.gap = "20px";
 
     pokemonIdDiv.textContent = `ID: ${id}`;
     pokemonName.textContent = `Name: ${capitalizedName}`;
