@@ -48,7 +48,7 @@ function move(key) {
 
   abortController = new AbortController();
 
-  const moveWidth = screenWidth < 600 ? 10 : 30;
+  const moveWidth = screenWidth < 661 ? 10 : 30;
 
   switch (key) {
     case "ArrowRight":
@@ -65,7 +65,7 @@ function move(key) {
       break;
   }
 
-  if (screenWidth < 601) {
+  if (screenWidth < 661) {
     if (x > 230) {
       x = 0;
     }
