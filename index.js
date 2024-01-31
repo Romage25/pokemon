@@ -21,7 +21,6 @@ const rightArrow = document.getElementById("rightArrow");
 
 let screenWidth = window.screen.width;
 
-console.log(screenWidth);
 
 let x = 0;
 let y = 0;
@@ -32,6 +31,7 @@ document.addEventListener("keydown", run);
 
 document.addEventListener("resize", () => {
   screenWidth = window.screen.width;
+  console.log(screenWidth);
 })
 
 function run(e) {
@@ -48,7 +48,7 @@ function move(key) {
 
   abortController = new AbortController();
 
-  const moveWidth = screenWidth < 661 ? 10 : 30;
+  const moveWidth = screenWidth < 1025 ? 10 : 30;
 
   switch (key) {
     case "ArrowRight":
@@ -65,7 +65,7 @@ function move(key) {
       break;
   }
 
-  if (screenWidth < 661) {
+  if (screenWidth < 1025) {
     if (x > 230) {
       x = 0;
     }
