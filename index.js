@@ -15,6 +15,11 @@ const noPokemon = document.getElementById("noPokemon");
 
 const isLoading = document.getElementById("isLoading");
 
+const upArrow = document.getElementById("upArrow");
+const downArrow = document.getElementById("downArrow");
+const leftArrow = document.getElementById("leftArrow");
+const rightArrow = document.getElementById("rightArrow");
+
 let x = 0;
 let y = 0;
 
@@ -57,11 +62,11 @@ function move(key) {
   if (x < 0) {
     x = 870;
   }
-  if (y > 570) {
+  if (y > 540) {
     y = 0;
   }
   if (y < 0) {
-    y = 570;
+    y = 540;
   }
 
   player.style.left = `${x}px`;
@@ -129,8 +134,20 @@ async function getPokemonData(pokemonId) {
     }
   }
 
-  console.log("Hi");
 }
+
+upArrow.addEventListener("click", () => {
+  move("ArrowUp");
+});
+downArrow.addEventListener("click", () => {
+  move("ArrowDown");
+});
+leftArrow.addEventListener("click", () => {
+  move("ArrowLeft");
+});
+rightArrow.addEventListener("click", () => {
+  move("ArrowRight");
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const direction = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];

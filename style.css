@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  max-height: 100vh;
   width: 100%;
 }
 
@@ -30,9 +30,8 @@ p {
 }
 
 #map {
-  height: 600px;
+  height: 570px;
   width: 900px;
-  padding: 4px;
   background-color: rgba(255, 155, 5, 0.937);
   position: relative;
 }
@@ -46,8 +45,14 @@ p {
   left: 0;
 }
 
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card {
-  height: 600px;
+  height: 400px;
   width: 300px;
   background-color: rgba(18, 113, 247, 0.545);
   /* border: 4px solid black; */
@@ -73,9 +78,10 @@ p {
 }
 
 #pokemonInfoContainer {
+  margin-top: 10px;
   height: 70%;
   width: 100%;
-  padding: 30px;
+  padding: 10px;
   background-color: white;
   display: none;
 }
@@ -92,4 +98,45 @@ p {
   font-weight: bold;
   font-size: 50px;
   text-align: center;
+}
+
+.controller {
+  position: relative;
+  height: 150px;
+}
+
+#upArrow {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  background-color: white;
+  border: none;
+}
+
+#downArrow {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  background-color: white;
+  border: none;
+}
+
+#leftArrow {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  background-color: white;
+  border: none;
+}
+
+#rightArrow {
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  background-color: white;
+  border: none;
+}
+
+#upArrow:active, #downArrow:active, #leftArrow:active, #rightArrow:active  {
+  background-color: rgba(122, 117, 117, 0.673);
 }
