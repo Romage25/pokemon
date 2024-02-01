@@ -149,6 +149,6 @@ rightArrow.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const userDirection = Math.floor(Math.random() * directions.length);
-  move(userDirection);
+  const randomDirection = Math.floor(Math.random() * directions.length);
+  move(randomDirection);
 });
