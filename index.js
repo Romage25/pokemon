@@ -21,7 +21,6 @@ const rightArrow = document.getElementById("rightArrow");
 
 let screenWidth = window.screen.width;
 
-
 let x = 0;
 let y = 0;
 
@@ -29,10 +28,10 @@ let abortController = new AbortController();
 
 document.addEventListener("keydown", run);
 
-document.addEventListener("resize", () => {
-  screenWidth = window.screen.width;
-  console.log(screenWidth);
-})
+// window.addEventListener("resize", () => {
+//   screenWidth = window.screen.width;
+//   console.log(screenWidth);
+// });
 
 function run(e) {
   const direction = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
@@ -156,7 +155,6 @@ async function getPokemonData(pokemonId) {
       console.error("Error:", error.message);
     }
   }
-
 }
 
 upArrow.addEventListener("click", () => {
@@ -174,6 +172,6 @@ rightArrow.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   const direction = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
-  const randomDirection = Math.floor(Math.random() * direction.length);
-  move(randomDirection);
+  const userDirection = Math.floor(Math.random() * direction.length);
+  move(userDirection);
 });
