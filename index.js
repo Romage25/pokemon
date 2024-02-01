@@ -66,17 +66,17 @@ function move(key) {
   }
 
   if (screenWidth < 1025) {
-    if (x > 230) {
+    if (x > 290) {
       x = 0;
     }
     if (x < 0) {
-      x = 230;
+      x = 290;
     }
-    if (y > 350) {
+    if (y > 170) {
       y = 0;
     }
     if (y < 0) {
-      y = 350;
+      y = 170;
     }
   } else {
     if (x > 870) {
@@ -85,11 +85,11 @@ function move(key) {
     if (x < 0) {
       x = 870;
     }
-    if (y > 540) {
+    if (y > 510) {
       y = 0;
     }
     if (y < 0) {
-      y = 540;
+      y = 510;
     }
   }
 
