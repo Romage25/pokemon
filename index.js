@@ -1,6 +1,6 @@
 import { getTypeBaseOnLocation } from "./utils/getTypeBaseOnLocation.mjs";
 import { getRandomPokemonBaseOnType } from "./utils/getRandomPokemonBaseOnType.mjs";
-import { getPokemonData } from "./utils/getPokemonData.mjs"
+import { getPokemonData } from "./utils/getPokemonData.mjs";
 
 const directions = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
 
@@ -25,6 +25,8 @@ const downArrow = document.getElementById("downArrow");
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
 
+const randomTerrainsPositions = [];
+
 let screenWidth = window.screen.width;
 
 let x = 0;
@@ -33,6 +35,34 @@ let y = 0;
 let abortController = new AbortController();
 
 document.addEventListener("keydown", run);
+
+function loadRandomTerrains() {
+  const numberOfTerrains = 15;
+  const xAxisNumber = 30;
+  const yAxisNumber = 18;
+  let size = screenWidth < 1025 ? 10 : 30;
+  const map = document.getElementById("map");
+
+  for (let i = 0; i < numberOfTerrains; i++) {
+    const randomXAxis =
+      (Math.floor(Math.random() * xAxisNumber) + 1) * size - size;
+    const randomYAxis =
+      (Math.floor(Math.random() * yAxisNumber) + 1) * size - size;
+    randomTerrainsPositions.push({ x: randomXAxis, y: randomYAxis });
+  }
+
+  randomTerrainsPositions.forEach((terrain) => {
+    const newTerrain = document.createElement("div");
+    newTerrain.style.width = `${size}px`;
+    newTerrain.style.height = `${size}px`;
+    newTerrain.style.backgroundColor = "black";
+    newTerrain.style.zIndex = 2;
+    newTerrain.style.position = "absolute";
+    newTerrain.style.top = `${terrain.y}px`;
+    newTerrain.style.left = `${terrain.x}px`;
+    map.append(newTerrain);
+  });
+}
 
 function run(e) {
   const { key } = e;
@@ -48,6 +78,7 @@ async function move(key) {
   abortController = new AbortController();
 
   const moveWidth = screenWidth < 1025 ? 10 : 30;
+  let stop = false;
 
   switch (key) {
     case "ArrowRight":
@@ -63,6 +94,31 @@ async function move(key) {
       y += moveWidth;
       break;
   }
+
+  randomTerrainsPositions.forEach((terrain) => {
+    if (terrain.x === x && terrain.y === y) {
+
+      //inverted the code above to revert the changes of the player's position
+      switch (key) {
+        case "ArrowRight":
+          x -= moveWidth;
+          break;
+        case "ArrowLeft":
+          x += moveWidth;
+          break;
+        case "ArrowUp":
+          y += moveWidth;
+          break;
+        case "ArrowDown":
+          y -= moveWidth;
+          break;
+      }
+      stop = true;
+    }
+  });
+
+  // Prevent move
+  if (stop === true) return;
 
   if (screenWidth < 1025) {
     if (x > 290) {
@@ -101,7 +157,10 @@ async function move(key) {
   noPokemon.style.display = "none";
 
   const pokemonType = getTypeBaseOnLocation(screenWidth, x, y);
-  const randomPokemon = await getRandomPokemonBaseOnType(pokemonType, abortController);
+  const randomPokemon = await getRandomPokemonBaseOnType(
+    pokemonType,
+    abortController
+  );
 
   if (randomPokemon) {
     const pokemonData = await getPokemonData(randomPokemon, abortController);
@@ -150,5 +209,6 @@ rightArrow.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   const randomDirection = Math.floor(Math.random() * directions.length);
+  loadRandomTerrains();
   move(randomDirection);
 });

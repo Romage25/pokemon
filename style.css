@@ -18,7 +18,7 @@ h1 {
 
 legend {
   margin: 10px 50px;
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -71,78 +71,115 @@ p {
 #map .map-type {
   height: 180px;
   width: 150px;
+  position: absolute;
 }
 
 .normal {
   background-color: rgba(214, 96, 96, 0.768);
+  top: 0;
+  left: 0;
 }
 
 .fighting {
   background-color: rgba(252, 25, 25, 0.768);
+  top: 0;
+  left: 150px;
 }
 
 .flying {
   background-color: rgb(192, 255, 255);
+  top: 0;
+  left: 300px;
 }
 
 .poison {
   background-color: rgb(146, 8, 146);
+  top: 0;
+  left: 450px;
 }
 
 .ground {
   background-color: rgba(105, 3, 3, 0.652);
+  top: 0;
+  left: 600px;
 }
 
 .rock {
   background-color: rgba(238, 110, 12, 0.418);
+  top: 0;
+  left: 750px;
 }
 
-.bug{
+.bug {
   background-color: rgb(35, 103, 35);
+  top: 180px;
+  left: 0;
 }
 
 .ghost {
   background-color: rgb(93, 91, 91);
+  top: 180px;
+  left: 150px;
 }
 
 .steel {
   background-color: rgb(146, 143, 143);
+  top: 180px;
+  left: 300px;
 }
 
 .fire {
-  background-color: rgb(246, 0, 0)
+  background-color: rgb(246, 0, 0);
+  top: 180px;
+  left: 450px;
 }
 
 .water {
   background-color: rgb(5, 69, 219);
+  top: 180px;
+  left: 600px;
 }
 
 .grass {
   background-color: rgb(46, 145, 0);
+  top: 180px;
+  left: 750px;
 }
 
 .electric {
   background-color: rgba(248, 220, 7, 0.94);
+  top: 360px;
+  left: 0px;
 }
 
 .psychic {
   background-color: rgb(254, 1, 254);
+  top: 360px;
+  left: 150px;
 }
 
 .ice {
   background-color: rgb(6, 246, 246);
+  top: 360px;
+  left: 300px;
 }
 
 .dragon {
-  background-color: rgba(169, 6, 6, 0.668)
+  background-color: rgba(169, 6, 6, 0.668);
+  top: 360px;
+  left: 450px;
 }
 
 .dark {
-  background-color: rgba(40, 41, 39, 0.586)
+  background-color: rgba(40, 41, 39, 0.586);
+  top: 360px;
+  left: 600px;
 }
 
 .fairy {
   background-color: rgb(234, 114, 134);
+  top: 360px;
+  left: 750px;
 }
 
 .right-container {
@@ -235,7 +272,10 @@ p {
   border: none;
 }
 
-#upArrow:active, #downArrow:active, #leftArrow:active, #rightArrow:active  {
+#upArrow:active,
+#downArrow:active,
+#leftArrow:active,
+#rightArrow:active {
   background-color: rgba(122, 117, 117, 0.673);
 }
 
@@ -246,7 +286,7 @@ p {
 
   legend {
     margin: 10px 50px;
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
@@ -294,11 +334,15 @@ p {
     gap: 2px;
   }
 
-  #noPokemon, #isLoading {
+  #noPokemon,
+  #isLoading {
     font-size: 20px;
   }
 
-  #pokemonId, #pokemonName, #pokemonBaseExperience, #pokemonHeight {
+  #pokemonId,
+  #pokemonName,
+  #pokemonBaseExperience,
+  #pokemonHeight {
     font-size: 6px;
   }
 
@@ -310,19 +354,110 @@ p {
     top: 0;
     left: 40%;
   }
-  
+
   #downArrow {
     bottom: 0;
     left: 40%;
   }
-  
+
   #leftArrow {
     top: 30%;
     left: 20%;
   }
-  
+
   #rightArrow {
     top: 30%;
     left: 60%;
+  }
+
+  .normal {
+    top: 0;
+    left: 0;
+  }
+
+  .fighting {
+    top: 0;
+    left: 50px;
+  }
+
+  .flying {
+    top: 0;
+    left: 100px;
+  }
+
+  .poison {
+    top: 0;
+    left: 150px;
+  }
+
+  .ground {
+    top: 0;
+    left: 200px;
+  }
+
+  .rock {
+    top: 0;
+    left: 250px;
+  }
+
+  .bug {
+    top: 60px;
+    left: 0;
+  }
+
+  .ghost {
+    top: 60px;
+    left: 50px;
+  }
+
+  .steel {
+    top: 60px;
+    left: 100px;
+  }
+
+  .fire {
+    top: 60px;
+    left: 150px;
+  }
+
+  .water {
+    top: 60px;
+    left: 200px;
+  }
+
+  .grass {
+    top: 60px;
+    left: 250px;
+  }
+
+  .electric {
+    top: 120px;
+    left: 0px;
+  }
+
+  .psychic {
+    top: 120px;
+    left: 50px;
+  }
+
+  .ice {
+    top: 120px;
+    left: 100px;
+  }
+
+  .dragon {
+    top: 120px;
+    left: 150px;
+  }
+
+  .dark {
+    background-color: rgba(40, 41, 39, 0.586);
+    top: 120px;
+    left: 200px;
+  }
+
+  .fairy {
+    top: 120px;
+    left: 250px;
   }
 }
